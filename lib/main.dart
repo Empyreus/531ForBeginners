@@ -1,18 +1,20 @@
+import 'package:for_beginners_531/screens/wrapper.dart';
+import 'package:for_beginners_531/services/auth.dart';
 import 'package:flutter/material.dart';
-import 'authentication.dart';
-import 'root_page.dart';
+import 'package:provider/provider.dart';
+import 'package:for_beginners_531/models/user.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-        title: 'Flutter Login Demo',
-        theme: new ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: new RootPage(auth: new Auth()));
+    return StreamProvider<User>.value(
+      value: AuthService().user,
+      child: MaterialApp(
+        home: Wrapper(),
+      ),
+    );
   }
 }
