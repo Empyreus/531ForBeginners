@@ -10,6 +10,11 @@ class AuthService {
     return user != null ? User(uid: user.uid) : null;
   }
 
+  Future<String> get uid async {
+    final FirebaseUser user = await _auth.currentUser();
+    return user.uid;
+  }
+
   // auth change user stream
   Stream<User> get user {
     return _auth.onAuthStateChanged
@@ -49,7 +54,7 @@ class AuthService {
           email: email, password: password);
       FirebaseUser user = result.user;
       // create a new document for the user with the uid
-      await DatabaseService(uid: user.uid).updateUserData(0, 0, 0, 0);
+      await DatabaseService().updateUserData(0, 0, 0, 0);
       return _userFromFirebaseUser(user);
     } catch (error) {
       print(error.toString());

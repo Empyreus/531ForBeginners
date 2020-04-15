@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:for_beginners_531/models/weight.dart';
 
 class WeightTile extends StatelessWidget {
-  final weights;
-//  final Weight weight;
+  final int weight;
   final String name;
 
-  WeightTile({this.weights, this.name});
+  WeightTile({this.weight, this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class WeightTile extends StatelessWidget {
             child: ListTile(
               leading: Icon(Icons.fitness_center),
               title: Text(name),
-              trailing: Text(0.toString()),
+              trailing: Text(this.weight.toString()),
             )
         )
     );
