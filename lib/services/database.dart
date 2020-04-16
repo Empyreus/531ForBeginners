@@ -2,6 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:for_beginners_531/models/weight.dart';
 
 class DatabaseService {
+  final String uid;
+
+  DatabaseService({this.uid});
 
   // collection reference
   final CollectionReference weightCollection =
@@ -9,7 +12,7 @@ class DatabaseService {
 
   Future<void> updateUserData(int squat, int bench, int deadlift,
       int press) async {
-    return await weightCollection.document().setData({
+    return await weightCollection.document(uid).setData({
       'squat': squat,
       'bench': bench,
       'deadlift': deadlift,

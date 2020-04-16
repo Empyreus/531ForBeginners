@@ -13,10 +13,10 @@ class WeightList extends StatefulWidget {
 class _WeightListState extends State<WeightList> {
   String uid;
 
-  int squat;
-  int bench;
-  int deadlift;
-  int press;
+  int squat = -1;
+  int bench = -1;
+  int deadlift = -1;
+  int press = -1;
 
   @override
   void initState() {
@@ -27,21 +27,23 @@ class _WeightListState extends State<WeightList> {
   getUid() async {
     await AuthService().uid.then((result) => {
           uid = result,
+          print("test $uid"),
           getWeights(),
         });
   }
 
   getWeights() async {
-    final CollectionReference weightCollection =
-        Firestore.instance.collection('weights');
-
-    weightCollection.document(uid).get().then((DocumentSnapshot docs) => {
-          squat = docs['squat'],
-          bench = docs['bench'],
-          deadlift = docs['deadlift'],
-          press = docs['press'],
-          setState(() {})
-        });
+    Firestore.instance
+        .collection('weights')
+        .document(uid)
+        .get()
+        .then((DocumentSnapshot docs) => {
+              squat = docs['squat'],
+              bench = docs['bench'],
+              deadlift = docs['deadlift'],
+              press = docs['press'],
+              setState(() {})
+            });
   }
 
   @override
