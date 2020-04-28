@@ -17,7 +17,14 @@ class DatabaseService {
       'bench': bench,
       'deadlift': deadlift,
       'press': press,
-    });
+    }, merge: true);
+  }
+
+  Future<void> updateUserSquat(int squat) async {
+    print("Squat: $squat");
+    return await weightCollection.document(uid).setData({
+      'squat': squat,
+    }, merge: true);
   }
 
   //weight list from snapshot

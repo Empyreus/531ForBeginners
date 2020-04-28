@@ -1,8 +1,8 @@
 class Weight {
-  final int squat;
-  final int bench;
-  final int deadlift;
-  final int press;
+  int squat;
+  int bench;
+  int deadlift;
+  int press;
 
   Weight({this.squat, this.bench, this.deadlift, this.press});
 }
