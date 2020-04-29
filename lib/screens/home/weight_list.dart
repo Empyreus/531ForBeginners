@@ -59,10 +59,10 @@ class _WeightListState extends State<WeightList> {
 
     return ListView(
       children: <Widget>[
-        WeightTile(weights: weights, name: "Squat"),
-        WeightTile(weights: weights, name: "Bench Press"),
-        WeightTile(weights: weights, name: "Dead Lift"),
-        WeightTile(weights: weights, name: "Overhead Press"),
+        WeightTile(weights: squat, name: "Squat"),
+        WeightTile(weights: bench, name: "Bench Press"),
+        WeightTile(weights: deadlift, name: "Dead Lift"),
+        WeightTile(weights: press, name: "Overhead Press"),
       ],
     );
   }

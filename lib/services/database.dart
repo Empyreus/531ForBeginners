@@ -21,9 +21,26 @@ class DatabaseService {
   }
 
   Future<void> updateUserSquat(int squat) async {
-    print("Squat: $squat");
     return await weightCollection.document(uid).setData({
       'squat': squat,
+    }, merge: true);
+  }
+
+  Future<void> updateUserBench(int bench) async {
+    return await weightCollection.document(uid).setData({
+      'bench': bench,
+    }, merge: true);
+  }
+
+  Future<void> updateUserDeadlift(int deadlift) async {
+    return await weightCollection.document(uid).setData({
+      'deadlift': deadlift,
+    }, merge: true);
+  }
+
+  Future<void> updateUserPress(int press) async {
+    return await weightCollection.document(uid).setData({
+      'press': press,
     }, merge: true);
   }
 

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:for_beginners_531/services/auth.dart';
 import 'package:for_beginners_531/services/database.dart';
-import 'package:for_beginners_531/models/weight.dart';
-import 'package:for_beginners_531/screens/home/popup_weight.dart';
+import 'package:flutter/services.dart';
 
 class WeightTile extends StatefulWidget {
   @override
   _WeightTileState createState() => _WeightTileState();
-  final Weight weights;
+  final int weights;
   final String name;
 
   WeightTile({this.weights, this.name});
@@ -16,16 +14,14 @@ class WeightTile extends StatefulWidget {
 
 class _WeightTileState extends State<WeightTile> {
 
-  Weight currentWeights;
+  int dispWeight;
   String uid;
   String value;
-
-
 
   @override
   void initState() {
     super.initState();
-    currentWeights = widget.weights;
+    dispWeight = widget.weights;
   }
 
   getUid() async {
@@ -39,10 +35,25 @@ class _WeightTileState extends State<WeightTile> {
   setWeights() async {
     switch (widget.name) {
       case "Squat":
-        print("Value: " + value);
         DatabaseService(uid: uid).updateUserSquat(int.parse(value));
-        currentWeights.squat = int.parse(value.toString());
+        dispWeight = int.parse(value.toString());
         setState(() {});
+        break;
+      case "Bench Press":
+        DatabaseService(uid: uid).updateUserBench(int.parse(value));
+        dispWeight = int.parse(value.toString());
+        setState(() {});
+        break;
+      case "Dead Lift":
+        DatabaseService(uid: uid).updateUserDeadlift(int.parse(value));
+        dispWeight = int.parse(value.toString());
+        setState(() {});
+        break;
+      case "Overhead Press":
+        DatabaseService(uid: uid).updateUserPress(int.parse(value));
+        dispWeight = int.parse(value.toString());
+        setState(() {});
+        break;
     }
   }
 
@@ -58,19 +69,6 @@ class _WeightTileState extends State<WeightTile> {
             content: Stack(
               overflow: Overflow.visible,
               children: <Widget>[
-                Positioned(
-                  right: -40.0,
-                  top: -40.0,
-                  child: InkResponse(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: CircleAvatar(
-                      child: Icon(Icons.close),
-                      backgroundColor: Colors.red,
-                    ),
-                  ),
-                ),
                 Form(
                   key: _formKey,
                   child: Column(
@@ -78,24 +76,29 @@ class _WeightTileState extends State<WeightTile> {
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Text('Enter New Weight'),
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            WhitelistingTextInputFormatter.digitsOnly
+                          ],
                           decoration: const InputDecoration(
-                            icon: Icon(Icons.person),
-                            hintText: 'What do people call you?',
-                            labelText: 'Name *',
+                            icon: Icon(Icons.fitness_center),
+                            hintText: 'Enter New Weight',
+                            labelText: 'New Weight *',
                           ),
                           onSaved: (String  newWeight) {
                             // This optional block of code can be used to run
                             // code when the user saves the form.
-                            print("VALUE: $newWeight");
                             value = newWeight;
                             getUid();
                           },
                           validator: (String value) {
+                            if(int.parse(value) > 1000){
+                              return 'Weight Must Be Below 1000';
+                            }
                             return value.contains('@') ? 'Do not use the @ char.' : null;
                           },
                         ),
@@ -112,15 +115,6 @@ class _WeightTileState extends State<WeightTile> {
                           },
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: RaisedButton(
-                          child: Text("Clear"),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      )
                     ],
                   ),
                 ),
@@ -132,22 +126,6 @@ class _WeightTileState extends State<WeightTile> {
 
   @override
   Widget build(BuildContext context) {
-    int weight;
-    switch (widget.name) {
-      case "Squat":
-        weight = widget.weights.squat;
-        break;
-      case "Bench Press":
-        weight = widget.weights.bench;
-        break;
-      case "Dead Lift":
-        weight = widget.weights.deadlift;
-        break;
-      case "Overhead Press":
-        weight = widget.weights.press;
-        break;
-    }
-
     return GestureDetector(
       child: Padding(
           padding: EdgeInsets.only(top: 8.0),
@@ -156,7 +134,7 @@ class _WeightTileState extends State<WeightTile> {
               child: ListTile(
                 leading: Icon(Icons.fitness_center),
                 title: Text(widget.name),
-                trailing: Text(weight.toString()),
+                trailing: Text(dispWeight.toString()),
               ))),
       onTap: () => _showDialog(context, widget.name)
     ,
