@@ -27,11 +27,11 @@ class _SignInState extends State<SignIn> {
     return loading
         ? Loading()
         : Scaffold(
-            backgroundColor: Colors.brown[100],
+            backgroundColor: Colors.grey[300],
             appBar: AppBar(
-              backgroundColor: Colors.brown[400],
+              backgroundColor: Colors.blueGrey[400],
               elevation: 0.0,
-              title: Text('Sign in to Brew Crew'),
+              title: Text('Sign In User'),
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.person),

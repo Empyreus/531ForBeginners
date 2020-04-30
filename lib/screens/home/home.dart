@@ -13,10 +13,10 @@ class Home extends StatelessWidget {
     return StreamProvider<List<Weight>>.value(
       value: DatabaseService().weights,
       child: Scaffold(
-        backgroundColor: Colors.brown[50],
+        backgroundColor: Colors.grey[300],
         appBar: AppBar(
-          title: Text('Brew Crew'),
-          backgroundColor: Colors.brown[400],
+          title: Text('531 For Beginners'),
+          backgroundColor: Colors.blueGrey[400],
           elevation: 0.0,
           actions: <Widget>[
             FlatButton.icon(
