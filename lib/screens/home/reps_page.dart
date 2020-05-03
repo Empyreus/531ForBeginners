@@ -1,4 +1,4 @@
-import 'package:for_beginners_531/screens/home/reps_table.dart';
+import 'package:for_beginners_531/screens/home/reps_select.dart';
 import 'package:for_beginners_531/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:for_beginners_531/services/database.dart';
@@ -30,7 +30,7 @@ class Reps extends StatelessWidget {
               ),
             ],
           ),
-          body: RepsTable()),
+          body: RepsSelect()),
     );
   }
 }

@@ -1,16 +1,23 @@
-import 'package:for_beginners_531/screens/home/reps_page.dart';
+import 'package:for_beginners_531/screens/home/reps_select.dart';
 import 'package:for_beginners_531/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:for_beginners_531/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:for_beginners_531/screens/home/weight_list.dart';
 import 'package:for_beginners_531/models/weight.dart';
+import 'package:for_beginners_531/screens/weights/week1/squat_table.dart';
 
-class Home extends StatelessWidget {
+class SquatTableScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
+
+  SquatTableScreen({this.uid});
+  final String uid;
+
 
   @override
   Widget build(BuildContext context) {
+
+
     return StreamProvider<List<Weight>>.value(
       value: DatabaseService().weights,
       child: Scaffold(
@@ -25,18 +32,12 @@ class Home extends StatelessWidget {
                 label: Text('logout'),
                 onPressed: () async {
                   await _auth.signOut();
+                  Navigator.pop(context);
                 },
               ),
             ],
           ),
-          body: WeightList(),
-          floatingActionButton:
-              FloatingActionButton.extended(onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Reps()),
-                );}, label: Text('Submit'), icon: Icon(Icons.check), backgroundColor: Colors.blueGrey[400],)
-              ),
+          body: SquatTable(uid: uid)),
     );
   }
 }
