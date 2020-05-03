@@ -1,3 +1,4 @@
+import 'package:for_beginners_531/screens/home/reps_table.dart';
 import 'package:for_beginners_531/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:for_beginners_531/services/database.dart';
@@ -24,12 +25,12 @@ class Reps extends StatelessWidget {
                 label: Text('logout'),
                 onPressed: () async {
                   await _auth.signOut();
+                  Navigator.pop(context);
                 },
               ),
             ],
           ),
-          body: Text("REPS")
-          ),
+          body: RepsTable()),
     );
   }
 }

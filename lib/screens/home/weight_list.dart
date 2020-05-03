@@ -12,8 +12,6 @@ class WeightList extends StatefulWidget {
 class _WeightListState extends State<WeightList> {
   String uid;
 
-  Weight weights = new Weight(squat: -1, bench: -1, deadlift: -1, press: -1);
-
   int squat = -1;
   int bench = -1;
   int deadlift = -1;
@@ -43,10 +41,6 @@ class _WeightListState extends State<WeightList> {
               bench = docs['bench'],
               deadlift = docs['deadlift'],
               press = docs['press'],
-              weights.squat = docs['squat'],
-              weights.bench = docs['bench'],
-              weights.deadlift = docs['deadlift'],
-              weights.press = docs['press'],
               setState(() {})
             });
   }
