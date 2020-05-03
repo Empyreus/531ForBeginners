@@ -97,11 +97,6 @@ class _BenchTableState extends State<BenchTable> {
               DataCell(Text('3')),
             ]),
             DataRow(cells: [
-              DataCell(Text(bench65.toString())),
-              DataCell(Text('1')),
-              DataCell(Text('5')),
-            ]),
-            DataRow(cells: [
               DataCell(Text(bench75.toString())),
               DataCell(Text('1')),
               DataCell(Text('5')),
@@ -109,10 +104,15 @@ class _BenchTableState extends State<BenchTable> {
             DataRow(cells: [
               DataCell(Text(bench85.toString())),
               DataCell(Text('1')),
+              DataCell(Text('5')),
+            ]),
+            DataRow(cells: [
+              DataCell(Text(bench95.toString())),
+              DataCell(Text('1')),
               DataCell(Text('5+')),
             ]),
             DataRow(cells: [
-              DataCell(Text(bench65.toString())),
+              DataCell(Text(bench75.toString())),
               DataCell(Text('5')),
               DataCell(Text('5')),
             ]),

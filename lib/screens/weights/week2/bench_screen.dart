@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:for_beginners_531/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:for_beginners_531/models/weight.dart';
-import 'package:for_beginners_531/screens/weights/week1/bench_table.dart';
+import 'package:for_beginners_531/screens/weights/week2/bench_table.dart';
 
-class Week1BenchTableScreen extends StatelessWidget {
+class Week2BenchTableScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
 
-  Week1BenchTableScreen({this.uid});
+  Week2BenchTableScreen({this.uid});
   final String uid;
 
 

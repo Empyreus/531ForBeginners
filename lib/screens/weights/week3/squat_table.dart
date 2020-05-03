@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class BenchTable extends StatefulWidget {
-  BenchTable({this.uid});
+class SquatTable extends StatefulWidget {
+  SquatTable({this.uid});
 
   final String uid;
 
   @override
-  _BenchTableState createState() => _BenchTableState();
+  _SquatTableState createState() => _SquatTableState();
 }
 
-class _BenchTableState extends State<BenchTable> {
-  int bench = -1;
+class _SquatTableState extends State<SquatTable> {
+  int squat = -1;
 
-  // Init Bench
-  int bench40;
-  int bench50;
-  int bench60;
-  int bench65;
-  int bench70;
-  int bench75;
-  int bench80;
-  int bench85;
-  int bench90;
-  int bench95;
+  // Init Squats
+  int squat40;
+  int squat50;
+  int squat60;
+  int squat65;
+  int squat70;
+  int squat75;
+  int squat80;
+  int squat85;
+  int squat90;
+  int squat95;
 
   @override
   void initState() {
@@ -37,18 +37,18 @@ class _BenchTableState extends State<BenchTable> {
         .document(widget.uid)
         .get()
         .then((DocumentSnapshot docs) => {
-              bench = docs['bench'],
-              // Bench Calculations
-              bench40 = (((bench * .40) * .90) / 5).round() * 5,
-              bench50 = (((bench * .50) * .90) / 5).round() * 5,
-              bench60 = (((bench * .60) * .90) / 5).round() * 5,
-              bench65 = (((bench * .65) * .90) / 5).round() * 5,
-              bench70 = (((bench * .70) * .90) / 5).round() * 5,
-              bench75 = (((bench * .75) * .90) / 5).round() * 5,
-              bench80 = (((bench * .80) * .90) / 5).round() * 5,
-              bench85 = (((bench * .85) * .90) / 5).round() * 5,
-              bench90 = (((bench * .90) * .90) / 5).round() * 5,
-              bench95 = (((bench * .95) * .90) / 5).round() * 5,
+              squat = docs['squat'],
+              // Squat Calculations
+              squat40 = (((squat * .40) * .90) / 5).round() * 5,
+              squat50 = (((squat * .50) * .90) / 5).round() * 5,
+              squat60 = (((squat * .60) * .90) / 5).round() * 5,
+              squat65 = (((squat * .65) * .90) / 5).round() * 5,
+              squat70 = (((squat * .70) * .90) / 5).round() * 5,
+              squat75 = (((squat * .75) * .90) / 5).round() * 5,
+              squat80 = (((squat * .80) * .90) / 5).round() * 5,
+              squat85 = (((squat * .85) * .90) / 5).round() * 5,
+              squat90 = (((squat * .90) * .90) / 5).round() * 5,
+              squat95 = (((squat * .95) * .90) / 5).round() * 5,
               setState(() {})
             });
   }
@@ -61,7 +61,7 @@ class _BenchTableState extends State<BenchTable> {
         child: ListView(children: <Widget>[
           Center(
               child: Text(
-            'Bench',
+            'Squat',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           )),
           DataTable(columns: [
@@ -82,37 +82,37 @@ class _BenchTableState extends State<BenchTable> {
             )),
           ], rows: [
             DataRow(cells: [
-              DataCell(Text(bench40.toString())),
+              DataCell(Text(squat40.toString())),
               DataCell(Text('1')),
               DataCell(Text('5')),
             ]),
             DataRow(cells: [
-              DataCell(Text(bench50.toString())),
+              DataCell(Text(squat50.toString())),
               DataCell(Text('1')),
               DataCell(Text('5')),
             ]),
             DataRow(cells: [
-              DataCell(Text(bench60.toString())),
+              DataCell(Text(squat60.toString())),
               DataCell(Text('1')),
               DataCell(Text('3')),
             ]),
             DataRow(cells: [
-              DataCell(Text(bench65.toString())),
+              DataCell(Text(squat75.toString())),
               DataCell(Text('1')),
               DataCell(Text('5')),
             ]),
             DataRow(cells: [
-              DataCell(Text(bench75.toString())),
+              DataCell(Text(squat85.toString())),
               DataCell(Text('1')),
               DataCell(Text('5')),
             ]),
             DataRow(cells: [
-              DataCell(Text(bench85.toString())),
+              DataCell(Text(squat95.toString())),
               DataCell(Text('1')),
               DataCell(Text('5+')),
             ]),
             DataRow(cells: [
-              DataCell(Text(bench65.toString())),
+              DataCell(Text(squat75.toString())),
               DataCell(Text('5')),
               DataCell(Text('5')),
             ]),

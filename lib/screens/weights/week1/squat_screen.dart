@@ -7,10 +7,10 @@ import 'package:for_beginners_531/screens/home/weight_list.dart';
 import 'package:for_beginners_531/models/weight.dart';
 import 'package:for_beginners_531/screens/weights/week1/squat_table.dart';
 
-class SquatTableScreen extends StatelessWidget {
+class Week1SquatTableScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
 
-  SquatTableScreen({this.uid});
+  Week1SquatTableScreen({this.uid});
   final String uid;
 
 

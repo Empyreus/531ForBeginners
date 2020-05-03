@@ -1,14 +1,16 @@
+import 'package:for_beginners_531/screens/home/reps_select.dart';
 import 'package:for_beginners_531/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:for_beginners_531/services/database.dart';
 import 'package:provider/provider.dart';
+import 'package:for_beginners_531/screens/home/weight_list.dart';
 import 'package:for_beginners_531/models/weight.dart';
-import 'package:for_beginners_531/screens/weights/week1/bench_table.dart';
+import 'package:for_beginners_531/screens/weights/week1/deadlift_table.dart';
 
-class Week1BenchTableScreen extends StatelessWidget {
+class Week1DeadliftTableScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
 
-  Week1BenchTableScreen({this.uid});
+  Week1DeadliftTableScreen({this.uid});
   final String uid;
 
 
@@ -35,7 +37,7 @@ class Week1BenchTableScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: BenchTable(uid: uid)),
+          body: DeadliftTable(uid: uid)),
     );
   }
 }
