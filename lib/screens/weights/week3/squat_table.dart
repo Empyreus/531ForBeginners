@@ -104,12 +104,12 @@ class _SquatTableState extends State<SquatTable> {
             DataRow(cells: [
               DataCell(Text(squat85.toString())),
               DataCell(Text('1')),
-              DataCell(Text('5')),
+              DataCell(Text('3')),
             ]),
             DataRow(cells: [
               DataCell(Text(squat95.toString())),
               DataCell(Text('1')),
-              DataCell(Text('5+')),
+              DataCell(Text('1+')),
             ]),
             DataRow(cells: [
               DataCell(Text(squat75.toString())),

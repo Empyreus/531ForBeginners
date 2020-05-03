@@ -37,20 +37,20 @@ class _DeadliftTableState extends State<DeadliftTable> {
         .document(widget.uid)
         .get()
         .then((DocumentSnapshot docs) => {
-      deadlift = docs['deadlift'],
-      // Deadlift Calculations
-      deadlift40 = (((deadlift * .40) * .90) / 5).round() * 5,
-      deadlift50 = (((deadlift * .50) * .90) / 5).round() * 5,
-      deadlift60 = (((deadlift * .60) * .90) / 5).round() * 5,
-      deadlift65 = (((deadlift * .65) * .90) / 5).round() * 5,
-      deadlift70 = (((deadlift * .70) * .90) / 5).round() * 5,
-      deadlift75 = (((deadlift * .75) * .90) / 5).round() * 5,
-      deadlift80 = (((deadlift * .80) * .90) / 5).round() * 5,
-      deadlift85 = (((deadlift * .85) * .90) / 5).round() * 5,
-      deadlift90 = (((deadlift * .90) * .90) / 5).round() * 5,
-      deadlift95 = (((deadlift * .95) * .90) / 5).round() * 5,
-      setState(() {})
-    });
+              deadlift = docs['deadlift'],
+              // Deadlift Calculations
+              deadlift40 = (((deadlift * .40) * .90) / 5).round() * 5,
+              deadlift50 = (((deadlift * .50) * .90) / 5).round() * 5,
+              deadlift60 = (((deadlift * .60) * .90) / 5).round() * 5,
+              deadlift65 = (((deadlift * .65) * .90) / 5).round() * 5,
+              deadlift70 = (((deadlift * .70) * .90) / 5).round() * 5,
+              deadlift75 = (((deadlift * .75) * .90) / 5).round() * 5,
+              deadlift80 = (((deadlift * .80) * .90) / 5).round() * 5,
+              deadlift85 = (((deadlift * .85) * .90) / 5).round() * 5,
+              deadlift90 = (((deadlift * .90) * .90) / 5).round() * 5,
+              deadlift95 = (((deadlift * .95) * .90) / 5).round() * 5,
+              setState(() {})
+            });
   }
 
   @override
@@ -61,25 +61,25 @@ class _DeadliftTableState extends State<DeadliftTable> {
         child: ListView(children: <Widget>[
           Center(
               child: Text(
-                'Deadlift',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              )),
+            'Deadlift',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          )),
           DataTable(columns: [
             DataColumn(
                 label: Text(
-                  'lbs',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                )),
+              'lbs',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            )),
             DataColumn(
                 label: Text(
-                  'sets',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                )),
+              'sets',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            )),
             DataColumn(
                 label: Text(
-                  'reps',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                )),
+              'reps',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            )),
           ], rows: [
             DataRow(cells: [
               DataCell(Text(deadlift40.toString())),
@@ -99,17 +99,17 @@ class _DeadliftTableState extends State<DeadliftTable> {
             DataRow(cells: [
               DataCell(Text(deadlift70.toString())),
               DataCell(Text('1')),
-              DataCell(Text('5')),
+              DataCell(Text('3')),
             ]),
             DataRow(cells: [
               DataCell(Text(deadlift80.toString())),
               DataCell(Text('1')),
-              DataCell(Text('5')),
+              DataCell(Text('3')),
             ]),
             DataRow(cells: [
               DataCell(Text(deadlift90.toString())),
               DataCell(Text('1')),
-              DataCell(Text('5+')),
+              DataCell(Text('3+')),
             ]),
             DataRow(cells: [
               DataCell(Text(deadlift70.toString())),

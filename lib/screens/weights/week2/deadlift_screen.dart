@@ -11,13 +11,11 @@ class Week2DeadliftTableScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
 
   Week2DeadliftTableScreen({this.uid});
-  final String uid;
 
+  final String uid;
 
   @override
   Widget build(BuildContext context) {
-
-
     return StreamProvider<List<Weight>>.value(
       value: DatabaseService().weights,
       child: Scaffold(
@@ -32,6 +30,7 @@ class Week2DeadliftTableScreen extends StatelessWidget {
                 label: Text('logout'),
                 onPressed: () async {
                   await _auth.signOut();
+                  Navigator.pop(context);
                   Navigator.pop(context);
                 },
               ),

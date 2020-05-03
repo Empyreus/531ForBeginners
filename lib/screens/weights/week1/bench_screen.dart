@@ -31,6 +31,7 @@ class Week1BenchTableScreen extends StatelessWidget {
                 onPressed: () async {
                   await _auth.signOut();
                   Navigator.pop(context);
+                  Navigator.pop(context);
                 },
               ),
             ],

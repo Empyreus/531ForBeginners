@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:for_beginners_531/services/auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:for_beginners_531/screens/weights/week1/squat_screen.dart';
 import 'package:for_beginners_531/screens/weights/week1/bench_screen.dart';
 import 'package:for_beginners_531/screens/weights/week1/deadlift_screen.dart';
@@ -182,7 +181,7 @@ class _RepsSelectState extends State<RepsSelect> {
           ),
           Center(
               child: Text(
-            'Week 1',
+            'Week 2',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           )),
           GridView.count(
@@ -322,7 +321,7 @@ class _RepsSelectState extends State<RepsSelect> {
           ),
           Center(
               child: Text(
-            'Week 1',
+            'Week 3',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           )),
           GridView.count(
